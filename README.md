@@ -248,7 +248,16 @@ This capture confirms that the `/pi` route is available through EC2 and returns 
 
 ## Design Decisions
 
-**Non-concurrent by design**: The assignment asks for this explicitly. The `while(true)` in `HttpServer.start()` handles one request at a time. For production, an `ExecutorService` or `VirtualThreads` would be used, but for this educational prototype the sequential loop is correct and easier to debug.
+**Concurrent request handling**: `HttpServer.start()` uses an `ExecutorService` (thread pool) to handle each incoming connection in a separate thread. This allows the server to process multiple simultaneous requests without blocking. The main loop accepts connections and immediately delegates handling to the pool:
+```java
+ExecutorService threadPool = Executors.newCachedThreadPool();
+while (running) {
+    Socket clientSocket = serverSocket.accept();
+    threadPool.submit(() -> handleRequest(clientSocket));
+}
+```
+
+**Graceful shutdown via JVM Shutdown Hook**: The server registers a `Runtime.getRuntime().addShutdownHook()` that fires on `Ctrl+C` or `SIGTERM`. The hook calls `server.stop()`, which sets `running = false`. Combined with `setSoTimeout(1000)` on the `ServerSocket`, the loop exits cleanly within 1 second without killing active requests mid-flight.
 
 **`getResourceAsStream()` for static files**: Works both in development (`target/classes/`) and packaged in a JAR, without hardcoding OS filesystem paths.
 
