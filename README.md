@@ -358,7 +358,9 @@ The complete Docker workflow and EC2 deployment recording is provided here:
 
 <video controls width="960">
   <source src="Assets/2026-03-11%2013-05-42.mp4" type="video/mp4">
-  Your browser does not support embedded video.
+  
 </video>
 
-[Open/download deployment video](Assets/2026-03-11%2013-05-42.mp4)
+## Demo
+
+[![Deploy](https://img.youtube.com/vi/iewIzA-gDEQ/0.jpg)](https://youtu.be/iewIzA-gDEQ)
