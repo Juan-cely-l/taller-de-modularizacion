@@ -1,4 +1,8 @@
+### Java / Maven
 target/
+out/
+
+### Maven helper files
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -7,11 +11,39 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://maven.apache.org/wrapper/#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
 
-# Eclipse m2e generated files
-# Eclipse Core
+### IDEs and editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
 .project
-# JDT-specific (Eclipse Java Development Tools)
 .classpath
+.settings/
+
+### Operating system files
+.DS_Store
+Thumbs.db
+
+### Logs and runtime dumps
+*.log
+*.pid
+*.pid.lock
+*.seed
+hs_err_pid*
+
+### Local environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+
+### Docker local overrides
+docker-compose.override.yml
+
+### Large raw recordings (keep optimized assets like .png/.mp4 in repo)
+Assets/*.mkv
