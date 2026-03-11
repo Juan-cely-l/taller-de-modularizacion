@@ -363,4 +363,4 @@ The complete Docker workflow and EC2 deployment recording is provided here:
 
 ## VIDEO
 
-[![Deploy]([https://img.youtube.com/vi/iewIzA-gDEQ/0.jpg)](https://youtu.be/iewIzA-gDE](https://youtu.be/G0FyJq9tPIU))
+[![Deploy](https://img.youtube.com/vi/iewIzA-gDEQ/0.jpg)](https://youtu.be/G0FyJq9tPIU)
